@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Excel Upload App</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container pt-5 mt-5" >
+  <div class="col-xl-6 mx-auto">
+    <h1>Upload an Excel File</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+    <div class="mb-3 ">
+      <label for="legalEntity">Legal Entity:</label>
+      <input type="text" class="form-control"name="legalEntity" id="legalEntity" required>
+      </div>
+      <div class="mb-3">
+      <label for="website">Website:</label>
+      <input type="text" class="form-control" name="website" id="website" required>
+    </div>
+    <div class="mb-3 ">
+      <label for="authorizedPerson">Authorized Person:</label>
+      <input type="text" class="form-control" name="authorizedPerson" id="authorizedPerson" required>
+    </div>
+    <div class="mb-3 ">
+      <label for="email">Enter Your email Id : </label>
+      <input type="email" class="form-control form-control-lg" name="email" id="email" required>
+    </div>
+    <div class="mb-3 ">
+      <label for="file">Select an Excel File:</label>
+      <input type="file" class="form-control form-control-lg" name="file" id="file" accept=".xlsx, .xls" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+</div>
+
+<!-------------------------------------------------------------------->
+
+
+
+  
+</body>
+</html>

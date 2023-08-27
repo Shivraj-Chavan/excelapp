@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>View Data</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <style>
+        .client-data td,
+        .client-data th {
+            border: 1px solid;
+            padding: 10px
+        }
+
+        .client-data {
+            width: 100%
+        }
+
+        .my * {
+            padding: 20px 0px
+        }
+     
+    </style>
+</head>
+
+<body>
+
+
+    <div class="container px-5">
+        <div id="btns" class="d-flex flex-row-reverse bd-highlight">
+            <a href="/" class="btn btn-danger m-3  align-right">
+             Go Back
+            </a>
+            <button onclick="pagePrint()" class="btn btn-success m-3  align-right">
+
+                Print
+            </button>
+        </div>
+        <div class="header text-center my">
+            <h3>FORM – ‘U’</h3>
+            <p>( See rule 34)</p>
+            <h3>DETAILS OF PERSONS OCCUPYING POSITION OF CONFIDENTIAL CHARACTER</h3>
+        </div>
+
+        <table class="info  px-5 py-3" cellpadding="20px">
+
+            <tr>
+                <th>Name of the Establishment / Organization:</th>
+                <td>
+                    <%= formData["legalEntity"] %>
+                </td>
+            </tr>
+            <tr>
+                <th>E-mail ID /Website Address :</th>
+                <td>
+                    <%= formData["website"] %>
+                </td>
+            </tr>
+            <tr>
+                <th>Name of Authorized person/manager:</th>
+                <td>
+                    <%= formData["authorizedPerson"] %>
+                </td>
+            </tr>
+            <tr>
+                <th>E-mail ID :</th>
+                <td>
+                    <%= formData["email"] %>
+                </td>
+            </tr>
+
+
+        </table>
+        <p style="text-indent:100px">The Management hereby declares the following persons to be the persons who will be
+            engaged in and shall be responsible for discharging work of confidential Nature relating to the Business of
+            the Establishment.</p>
+        <table class="mx-auto client-data">
+            <thead>
+                <tr>
+                    <th style="width:10%">Sr Number</th>
+                    <th>Name of the person</th>
+                </tr>
+            </thead>
+            <tbody>
+
+
+
+
+                <% for (const innerkey in formData["excelData"]) { %>
+                    <tr>
+                        <td><%=innerkey-1+2%></td>
+                        <td>
+                            <%=formData["excelData"][innerkey]["Employee Name"]%>
+                        </td>
+                    </tr>
+                    <% } %>
+
+            </tbody>
+        </table>
+
+    </div>
+
+
+<script>
+    pagePrint=()=>{
+        
+    var buttons = document.querySelectorAll(".btn");
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].style.display = "none";
+    
+    }
+    let pagetitle=document.title 
+        document.title=" "
+        print()
+        document.title=pagetitle
+
+
+            var buttons = document.querySelectorAll(".btn");
+        for (var i = 0; i < buttons.length; i++) {
+        buttons[i].style.display = "block";
+    
+ }
+
+
+ 
+}
+</script>
+
+
+</body>
+
+</html>
